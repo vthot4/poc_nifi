@@ -1,6 +1,18 @@
 
 # Jugando con el entorno de pruebas.
 
+
+Levantaremos el entorno de la siguiente forma:
+```bash
+nifiadm@integracion:~/nifi/repo/poc_nifi/examples/Twitter_Kafka_MongoDB$ docker-compose up -d
+Creating network "twitter_kafka_mongodb_labnet" with driver "bridge"
+Creating Poc_nifi_mongodb   ... done
+Creating Poc_nifi_zookeeper     ... done
+Creating Poc_nifi_nifi      ... done
+Creating Poc_nifi_mongo_express ... done
+Creating Poc_nifi_kafka         ... done
+```
+
 Podmeos ver el detalle de los contenedores de la siguiente forma:
 ```bash
 vthot4@proton:~/NIFI/poc_nifi/examples/Twitter_Kafka_MongoDB$ docker-compose top
@@ -59,4 +71,17 @@ root   18270   18208   0   13:59   ?     00:00:06   java -Xmx512M -Xms512M -serv
                                                     /usr/bin/../share/java/kafka/*:/usr/bin/../share/java/confluent-support-metrics/*:/usr/share/java/confluent-support-metrics/*
                                                     org.apache.zookeeper.server.quorum.QuorumPeerMain /etc/kafka/zookeeper.properties
 
+```
+
+
+Para ver los logs de uno de los servicios:
+
+```bash
+nifiadm@integracion:~/nifi/repo/poc_nifi/examples/Twitter_Kafka_MongoDB$ docker-compose logs -f nifi
+Attaching to Poc_nifi_nifi
+Poc_nifi_nifi    | replacing target file  /opt/nifi/nifi-current/conf/nifi.properties
+Poc_nifi_nifi    | replacing target file  /opt/nifi/nifi-current/conf/nifi.properties
+Poc_nifi_nifi    | replacing target file  /opt/nifi/nifi-current/conf/nifi.properties
+Poc_nifi_nifi    | replacing target file  /opt/nifi/nifi-current/conf/nifi.properties
+Poc_nifi_nifi    | replacing target file  /opt/nifi/nifi-current/conf/nifi.properties
 ```
