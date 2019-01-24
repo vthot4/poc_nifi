@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<template encoding-version="1.2">
+    <description>Flujo de prueba para insertar datos en Elasticsearch</description>
+    <groupId>809c173c-0168-1000-ebb3-63082479b6d2</groupId>
+    <name>Twitter-Elasticsearch</name>
+    <snippet>
+        <connections>
+            <id>384869fc-e3c0-38f7-0000-000000000000</id>
+            <parentGroupId>0683110d-1fd0-37ac-0000-000000000000</parentGroupId>
+            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+            <destination>
+                <groupId>0683110d-1fd0-37ac-0000-000000000000</groupId>
+                <id>f2beb9af-1184-360b-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </destination>
+            <flowFileExpiration>0 sec</flowFileExpiration>
+            <labelIndex>1</labelIndex>
+            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+            <name></name>
+            <selectedRelationships>matched</selectedRelationships>
+            <source>
+                <groupId>0683110d-1fd0-37ac-0000-000000000000</groupId>
+                <id>c970a9a0-a5c0-3017-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </source>
+            <zIndex>0</zIndex>
+        </connections>
+        <connections>
+            <id>50edc10f-1a02-38af-0000-000000000000</id>
+            <parentGroupId>0683110d-1fd0-37ac-0000-000000000000</parentGroupId>
+            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+            <destination>
+                <groupId>0683110d-1fd0-37ac-0000-000000000000</groupId>
+                <id>f070d1a0-1738-3a13-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </destination>
+            <flowFileExpiration>0 sec</flowFileExpiration>
+            <labelIndex>1</labelIndex>
+            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+            <name></name>
+            <selectedRelationships>matched</selectedRelationships>
+            <source>
+                <groupId>0683110d-1fd0-37ac-0000-000000000000</groupId>
+                <id>f2beb9af-1184-360b-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </source>
+            <zIndex>0</zIndex>
+        </connections>
+        <connections>
+            <id>fa0e0a0f-cf4a-3e31-0000-000000000000</id>
+            <parentGroupId>0683110d-1fd0-37ac-0000-000000000000</parentGroupId>
+            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+            <destination>
+                <groupId>0683110d-1fd0-37ac-0000-000000000000</groupId>
+                <id>c970a9a0-a5c0-3017-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </destination>
+            <flowFileExpiration>0 sec</flowFileExpiration>
+            <labelIndex>1</labelIndex>
+            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+            <name></name>
+            <selectedRelationships>success</selectedRelationships>
+            <source>
+                <groupId>0683110d-1fd0-37ac-0000-000000000000</groupId>
+                <id>d3ed4123-fca5-3a5f-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </source>
+            <zIndex>0</zIndex>
+        </connections>
+        <labels>
+            <id>3e23f9b3-5290-3c8e-0000-000000000000</id>
+            <parentGroupId>0683110d-1fd0-37ac-0000-000000000000</parentGroupId>
+            <position>
+                <x>0.0</x>
+                <y>0.0</y>
+            </position>
+            <height>205.93905639648438</height>
+            <label>                   Ingesta de datos de Twitter</label>
+            <style>
+                <entry>
+                    <key>font-size</key>
+                    <value>16px</value>
+                </entry>
+            </style>
+            <width>437.52685546875</width>
+        </labels>
+        <labels>
+            <id>44b83334-5d3c-3186-0000-000000000000</id>
+            <parentGroupId>0683110d-1fd0-37ac-0000-000000000000</parentGroupId>
+            <position>
+                <x>589.4238719358</x>
+                <y>636.1481332216667</y>
+            </position>
+            <height>184.4354248046875</height>
+            <label>                 Insercción directa en Elasticsearch</label>
+            <style>
+                <entry>
+                    <key>background-color</key>
+                    <value>#d6ffe8</value>
+                </entry>
+                <entry>
+                    <key>font-size</key>
+                    <value>16px</value>
+                </entry>
+            </style>
+            <width>422.7449951171875</width>
+        </labels>
+        <processors>
+            <id>c970a9a0-a5c0-3017-0000-000000000000</id>
+            <parentGroupId>0683110d-1fd0-37ac-0000-000000000000</parentGroupId>
+            <position>
+                <x>30.207144421743806</x>
+                <y>372.5542750008069</y>
+            </position>
+            <bundle>
+                <artifact>nifi-standard-nar</artifact>
+                <group>org.apache.nifi</group>
+                <version>1.8.0</version>
+            </bundle>
+            <config>
+                <bulletinLevel>WARN</bulletinLevel>
+                <comments></comments>
+                <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                <descriptors>
+                    <entry>
+                        <key>Destination</key>
+                        <value>
+                            <name>Destination</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Return Type</key>
+                        <value>
+                            <name>Return Type</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Path Not Found Behavior</key>
+                        <value>
+                            <name>Path Not Found Behavior</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Null Value Representation</key>
+                        <value>
+                            <name>Null Value Representation</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>twitter.lang</key>
+                        <value>
+                            <name>twitter.lang</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>twitter.text</key>
+                        <value>
+                            <name>twitter.text</name>
+                        </value>
+                    </entry>
+                </descriptors>
+                <executionNode>ALL</executionNode>
+                <lossTolerant>false</lossTolerant>
+                <penaltyDuration>30 sec</penaltyDuration>
+                <properties>
+                    <entry>
+                        <key>Destination</key>
+                        <value>flowfile-attribute</value>
+                    </entry>
+                    <entry>
+                        <key>Return Type</key>
+                        <value>auto-detect</value>
+                    </entry>
+                    <entry>
+                        <key>Path Not Found Behavior</key>
+                        <value>ignore</value>
+                    </entry>
+                    <entry>
+                        <key>Null Value Representation</key>
+                        <value>empty string</value>
+                    </entry>
+                    <entry>
+                        <key>twitter.lang</key>
+                        <value>$.lang</value>
+                    </entry>
+                    <entry>
+                        <key>twitter.text</key>
+                        <value>$.text</value>
+                    </entry>
+                </properties>
+                <runDurationMillis>0</runDurationMillis>
+                <schedulingPeriod>0 sec</schedulingPeriod>
+                <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                <yieldDuration>1 sec</yieldDuration>
+            </config>
+            <executionNodeRestricted>false</executionNodeRestricted>
+            <name>EvaluateJsonPath</name>
+            <relationships>
+                <autoTerminate>true</autoTerminate>
+                <name>failure</name>
+            </relationships>
+            <relationships>
+                <autoTerminate>false</autoTerminate>
+                <name>matched</name>
+            </relationships>
+            <relationships>
+                <autoTerminate>true</autoTerminate>
+                <name>unmatched</name>
+            </relationships>
+            <state>STOPPED</state>
+            <style/>
+            <type>org.apache.nifi.processors.standard.EvaluateJsonPath</type>
+        </processors>
+        <processors>
+            <id>d3ed4123-fca5-3a5f-0000-000000000000</id>
+            <parentGroupId>0683110d-1fd0-37ac-0000-000000000000</parentGroupId>
+            <position>
+                <x>29.088388403289287</x>
+                <y>34.68231329793957</y>
+            </position>
+            <bundle>
+                <artifact>nifi-social-media-nar</artifact>
+                <group>org.apache.nifi</group>
+                <version>1.8.0</version>
+            </bundle>
+            <config>
+                <bulletinLevel>WARN</bulletinLevel>
+                <comments></comments>
+                <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                <descriptors>
+                    <entry>
+                        <key>Twitter Endpoint</key>
+                        <value>
+                            <name>Twitter Endpoint</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Consumer Key</key>
+                        <value>
+                            <name>Consumer Key</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Consumer Secret</key>
+                        <value>
+                            <name>Consumer Secret</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Access Token</key>
+                        <value>
+                            <name>Access Token</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Access Token Secret</key>
+                        <value>
+                            <name>Access Token Secret</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Languages</key>
+                        <value>
+                            <name>Languages</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Terms to Filter On</key>
+                        <value>
+                            <name>Terms to Filter On</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>IDs to Follow</key>
+                        <value>
+                            <name>IDs to Follow</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Locations to Filter On</key>
+                        <value>
+                            <name>Locations to Filter On</name>
+                        </value>
+                    </entry>
+                </descriptors>
+                <executionNode>ALL</executionNode>
+                <lossTolerant>false</lossTolerant>
+                <penaltyDuration>30 sec</penaltyDuration>
+                <properties>
+                    <entry>
+                        <key>Twitter Endpoint</key>
+                        <value>Filter Endpoint</value>
+                    </entry>
+                    <entry>
+                        <key>Consumer Key</key>
+                        <value>vorAyFPBT9UXZi8JN5hEXpXUH</value>
+                    </entry>
+                    <entry>
+                        <key>Consumer Secret</key>
+                    </entry>
+                    <entry>
+                        <key>Access Token</key>
+                        <value>840894199637643264-Z9QDKMTm1DekA4OjyVYG69MnrRHfMPw</value>
+                    </entry>
+                    <entry>
+                        <key>Access Token Secret</key>
+                    </entry>
+                    <entry>
+                        <key>Languages</key>
+                        <value>en</value>
+                    </entry>
+                    <entry>
+                        <key>Terms to Filter On</key>
+                        <value>blockchain</value>
+                    </entry>
+                    <entry>
+                        <key>IDs to Follow</key>
+                    </entry>
+                    <entry>
+                        <key>Locations to Filter On</key>
+                    </entry>
+                </properties>
+                <runDurationMillis>0</runDurationMillis>
+                <schedulingPeriod>0 sec</schedulingPeriod>
+                <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                <yieldDuration>1 sec</yieldDuration>
+            </config>
+            <executionNodeRestricted>false</executionNodeRestricted>
+            <name>GetTwitter</name>
+            <relationships>
+                <autoTerminate>false</autoTerminate>
+                <name>success</name>
+            </relationships>
+            <state>STOPPED</state>
+            <style>
+                <entry>
+                    <key>background-color</key>
+                    <value>#ffffff</value>
+                </entry>
+            </style>
+            <type>org.apache.nifi.processors.twitter.GetTwitter</type>
+        </processors>
+        <processors>
+            <id>f070d1a0-1738-3a13-0000-000000000000</id>
+            <parentGroupId>0683110d-1fd0-37ac-0000-000000000000</parentGroupId>
+            <position>
+                <x>632.9999847412109</x>
+                <y>664.9999694824219</y>
+            </position>
+            <bundle>
+                <artifact>nifi-elasticsearch-nar</artifact>
+                <group>org.apache.nifi</group>
+                <version>1.8.0</version>
+            </bundle>
+            <config>
+                <bulletinLevel>WARN</bulletinLevel>
+                <comments></comments>
+                <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                <descriptors>
+                    <entry>
+                        <key>elasticsearch-http-url</key>
+                        <value>
+                            <name>elasticsearch-http-url</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>SSL Context Service</key>
+                        <value>
+                            <identifiesControllerService>org.apache.nifi.ssl.SSLContextService</identifiesControllerService>
+                            <name>SSL Context Service</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Username</key>
+                        <value>
+                            <name>Username</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Password</key>
+                        <value>
+                            <name>Password</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>elasticsearch-http-connect-timeout</key>
+                        <value>
+                            <name>elasticsearch-http-connect-timeout</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>elasticsearch-http-response-timeout</key>
+                        <value>
+                            <name>elasticsearch-http-response-timeout</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>proxy-configuration-service</key>
+                        <value>
+                            <identifiesControllerService>org.apache.nifi.proxy.ProxyConfigurationService</identifiesControllerService>
+                            <name>proxy-configuration-service</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>elasticsearch-http-proxy-host</key>
+                        <value>
+                            <name>elasticsearch-http-proxy-host</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>elasticsearch-http-proxy-port</key>
+                        <value>
+                            <name>elasticsearch-http-proxy-port</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>proxy-username</key>
+                        <value>
+                            <name>proxy-username</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>proxy-password</key>
+                        <value>
+                            <name>proxy-password</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>put-es-id-attr</key>
+                        <value>
+                            <name>put-es-id-attr</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>put-es-index</key>
+                        <value>
+                            <name>put-es-index</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>put-es-type</key>
+                        <value>
+                            <name>put-es-type</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Character Set</key>
+                        <value>
+                            <name>Character Set</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>put-es-batch-size</key>
+                        <value>
+                            <name>put-es-batch-size</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>put-es-index-op</key>
+                        <value>
+                            <name>put-es-index-op</name>
+                        </value>
+                    </entry>
+                </descriptors>
+                <executionNode>ALL</executionNode>
+                <lossTolerant>false</lossTolerant>
+                <penaltyDuration>30 sec</penaltyDuration>
+                <properties>
+                    <entry>
+                        <key>elasticsearch-http-url</key>
+                        <value>http://elasticsearch:9200</value>
+                    </entry>
+                    <entry>
+                        <key>SSL Context Service</key>
+                    </entry>
+                    <entry>
+                        <key>Username</key>
+                    </entry>
+                    <entry>
+                        <key>Password</key>
+                    </entry>
+                    <entry>
+                        <key>elasticsearch-http-connect-timeout</key>
+                        <value>5 secs</value>
+                    </entry>
+                    <entry>
+                        <key>elasticsearch-http-response-timeout</key>
+                        <value>15 secs</value>
+                    </entry>
+                    <entry>
+                        <key>proxy-configuration-service</key>
+                    </entry>
+                    <entry>
+                        <key>elasticsearch-http-proxy-host</key>
+                    </entry>
+                    <entry>
+                        <key>elasticsearch-http-proxy-port</key>
+                    </entry>
+                    <entry>
+                        <key>proxy-username</key>
+                    </entry>
+                    <entry>
+                        <key>proxy-password</key>
+                    </entry>
+                    <entry>
+                        <key>put-es-id-attr</key>
+                        <value>uuid</value>
+                    </entry>
+                    <entry>
+                        <key>put-es-index</key>
+                        <value>twitter</value>
+                    </entry>
+                    <entry>
+                        <key>put-es-type</key>
+                        <value>default</value>
+                    </entry>
+                    <entry>
+                        <key>Character Set</key>
+                        <value>UTF-8</value>
+                    </entry>
+                    <entry>
+                        <key>put-es-batch-size</key>
+                        <value>100</value>
+                    </entry>
+                    <entry>
+                        <key>put-es-index-op</key>
+                        <value>index</value>
+                    </entry>
+                </properties>
+                <runDurationMillis>0</runDurationMillis>
+                <schedulingPeriod>0 sec</schedulingPeriod>
+                <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                <yieldDuration>1 sec</yieldDuration>
+            </config>
+            <executionNodeRestricted>false</executionNodeRestricted>
+            <name>PutElasticsearchHttp</name>
+            <relationships>
+                <autoTerminate>true</autoTerminate>
+                <name>failure</name>
+            </relationships>
+            <relationships>
+                <autoTerminate>true</autoTerminate>
+                <name>retry</name>
+            </relationships>
+            <relationships>
+                <autoTerminate>true</autoTerminate>
+                <name>success</name>
+            </relationships>
+            <state>STOPPED</state>
+            <style/>
+            <type>org.apache.nifi.processors.elasticsearch.PutElasticsearchHttp</type>
+        </processors>
+        <processors>
+            <id>f2beb9af-1184-360b-0000-000000000000</id>
+            <parentGroupId>0683110d-1fd0-37ac-0000-000000000000</parentGroupId>
+            <position>
+                <x>25.057845504958777</x>
+                <y>659.6367115418652</y>
+            </position>
+            <bundle>
+                <artifact>nifi-standard-nar</artifact>
+                <group>org.apache.nifi</group>
+                <version>1.8.0</version>
+            </bundle>
+            <config>
+                <bulletinLevel>WARN</bulletinLevel>
+                <comments></comments>
+                <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                <descriptors>
+                    <entry>
+                        <key>Routing Strategy</key>
+                        <value>
+                            <name>Routing Strategy</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>tweets</key>
+                        <value>
+                            <name>tweets</name>
+                        </value>
+                    </entry>
+                </descriptors>
+                <executionNode>ALL</executionNode>
+                <lossTolerant>false</lossTolerant>
+                <penaltyDuration>30 sec</penaltyDuration>
+                <properties>
+                    <entry>
+                        <key>Routing Strategy</key>
+                        <value>Route to 'match' if all match</value>
+                    </entry>
+                    <entry>
+                        <key>tweets</key>
+                        <value>${twitter.text:isEmpty():not():and(${twitter.lang:equals("en")})}</value>
+                    </entry>
+                </properties>
+                <runDurationMillis>0</runDurationMillis>
+                <schedulingPeriod>0 sec</schedulingPeriod>
+                <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                <yieldDuration>1 sec</yieldDuration>
+            </config>
+            <executionNodeRestricted>false</executionNodeRestricted>
+            <name>RouteOnAttribute</name>
+            <relationships>
+                <autoTerminate>false</autoTerminate>
+                <name>matched</name>
+            </relationships>
+            <relationships>
+                <autoTerminate>true</autoTerminate>
+                <name>unmatched</name>
+            </relationships>
+            <state>STOPPED</state>
+            <style/>
+            <type>org.apache.nifi.processors.standard.RouteOnAttribute</type>
+        </processors>
+    </snippet>
+    <timestamp>01/24/2019 16:49:23 UTC</timestamp>
+</template>
