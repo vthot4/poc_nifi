@@ -13,7 +13,7 @@ services:
 
   nifi:
     image: apache/nifi
-    container_name: Poc_nifi_nifi
+    container_name: nifi
     ports:
         - "8080:8080"
     environment: 
