@@ -23,7 +23,9 @@ services:
 
   registry-nifi:
     image: apache/nifi-registry:latest
-    container_name: registry.nifi
+    container_name: registry-nifi
+        depends_on:
+      - nifi
     ports:
         -  18080:18080
     environment: 
