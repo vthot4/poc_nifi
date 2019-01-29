@@ -41,7 +41,7 @@ services:
     networks:
         - labnet
 
- mongo:
+  mongo:
     image: mongo
     container_name: Poc_nifi_mongodb
     restart: always
