@@ -1,0 +1,183 @@
+---
+version: '3.1'
+
+##  Component:  Poc_nifi_all
+##  Version:    0.1
+##  Author:     Versia Tecnologías Emergentes
+##  
+
+networks:
+  labnet:
+
+services:
+
+  nifi:
+    image: apache/nifi
+    container_name: Poc_registry_nifi
+    ports:
+        - "8080:8080"
+    environment: 
+        - NIFI_WEB_HTTP_PORT=8080
+    networks:
+        - labnet 
+
+  nifi2:
+    image: apache/nifi
+    container_name: Poc_registry_nifi2
+    ports:
+        - "9090:9090"
+    environment: 
+        - NIFI_WEB_HTTP_PORT=9090
+    networks:
+        - labnet 
+
+  registry-nifi:
+    image: apache/nifi-registry:latest
+    container_name: Poc_registry_registry
+    ports:
+        -  18080:18080
+    environment: 
+        - NIFI_WEB_HTTP_PORT=18080
+    networks:
+        - labnet
+
+ mongo:
+    image: mongo
+    container_name: Poc_nifi_mongodb
+    restart: always
+    ports:
+        - "27017:27017"
+      #environment:
+        #MONGO_INITDB_ROOT_USERNAME: root
+        #MONGO_INITDB_ROOT_PASSWORD:
+    networks:
+        - labnet
+  
+  mongo-express:
+    image: mongo-express
+    container_name: Poc_nifi_mongo_express
+    restart: always
+    ports: 
+        - "8081:8081"
+    environment:
+        #ME_CONFIG_MONGODB_ADMINUSERNAME: root
+        #ME_CINFIG_MONGODB_ADMINPASSWORD:
+      ME_CONFIG_BASICAUTH_USERNAME: admin
+      ME_CONFIG_BASICAUTH_PASSWORD: admin
+    depends_on:
+      - mongo
+    networks:
+        - labnet
+  
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    container_name: Poc_nifi_zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    networks:
+        - labnet
+  
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    container_name: Poc_nifi_kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://kafka:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    networks:
+        - labnet
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.5.4
+    container_name: elasticsearch
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - esdata1:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+    networks:
+      - labnet
+
+  elasticsearch2:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.5.4
+    container_name: elasticsearch2
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "discovery.zen.ping.unicast.hosts=elasticsearch"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - esdata2:/usr/share/elasticsearch/data
+    networks:
+      - labnet
+
+  elasticsearch3:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.5.4
+    container_name: elasticsearch3
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "discovery.zen.ping.unicast.hosts=elasticsearch"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - esdata3:/usr/share/elasticsearch/data
+    networks:
+      - labnet
+  
+  kibana:
+    image: docker.elastic.co/kibana/kibana-oss:6.5.4
+    container_name: kibana
+    environment:
+      SERVER_NAME: localhost
+      ELASTICSEARCH_URL: http://elasticsearch:9200/
+    ports:
+      - 5601:5601
+    ulimits:
+      nproc: 65535
+      memlock:
+        soft: -1
+        hard: -1
+    networks:
+       - labnet
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - 8090:80
+    volumes:
+        - ${PWD}/nginx-conf/:/etc/nginx/conf.d/
+    command: /bin/bash -c "nginx -g 'daemon off;'"
+    ulimits:
+      nproc: 65535
+    networks:
+      - labnet
+
+volumes:
+  esdata1:
+    driver: local
+  esdata2:
+    driver: local
+  esdata3:
+    driver: local
