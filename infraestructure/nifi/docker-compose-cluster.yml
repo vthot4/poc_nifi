@@ -19,7 +19,7 @@ services:
     networks:
       - labnet 
   nifi:
-    image: apache/nifi:1.8.0-SNAPSHOT-dockermaven
+    image: apache/nifi
     ports:
       - "8080:8080"
     environment:
