@@ -6,9 +6,6 @@ version: "3.1"
 ##  Author:     Versia Tecnologías Emergentes
 ##
 
-networks:
-  labnet:
-
 services:
   zookeeper:
     hostname: zookeeper
@@ -16,8 +13,6 @@ services:
     image: 'bitnami/zookeeper:latest'
     environment:
       - ALLOW_ANONYMOUS_LOGIN=yes
-    networks:
-      - labnet 
   nifi:
     image: apache/nifi
     ports:
@@ -28,5 +23,3 @@ services:
       - NIFI_CLUSTER_NODE_PROTOCOL_PORT=8082
       - NIFI_ZK_CONNECT_STRING=zookeeper:2181
       - NIFI_ELECTION_MAX_WAIT=1 min
-    networks:
-      - labnet 
