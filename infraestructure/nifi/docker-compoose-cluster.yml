@@ -1,0 +1,32 @@
+---
+version: "3.1"
+
+##  Component:  nifi
+##  Version:    0.2
+##  Author:     Versia Tecnologías Emergentes
+##
+
+networks:
+  labnet:
+
+services:
+  zookeeper:
+    hostname: zookeeper
+    container_name: zookeeper
+    image: 'bitnami/zookeeper:latest'
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+    networks:
+      - labnet 
+  nifi:
+    image: apache/nifi:1.8.0-SNAPSHOT-dockermaven
+    ports:
+      - "8080:8080"
+    environment:
+      - NIFI_WEB_HTTP_PORT=8080
+      - NIFI_CLUSTER_IS_NODE=true
+      - NIFI_CLUSTER_NODE_PROTOCOL_PORT=8082
+      - NIFI_ZK_CONNECT_STRING=zookeeper:2181
+      - NIFI_ELECTION_MAX_WAIT=1 min
+    networks:
+      - labnet 
